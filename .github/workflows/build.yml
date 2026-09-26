@@ -20,11 +20,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pyinstaller
+        pip install pyinstaller customtkinter
         # If your script uses other libraries, add them here. Example: pip install requests pandas
 
     - name: Build with PyInstaller
-      run: pyinstaller --onefile --noconsole financial_statement_automator.py
+      run: pyinstaller --onefile --noconsole --collect-all customtkinter financial_statement_automator.py
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v5
